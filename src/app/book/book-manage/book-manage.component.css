@@ -1,0 +1,16 @@
+.badge {
+    margin-right: 5px;
+}
+
+.book-name {
+    color: #000;
+}
+
+.book-name:hover {
+    color: #dd4b39;
+}
+
+.glyphicon-tags {
+    color: #dd4b39;
+    margin-right: 5px
+}

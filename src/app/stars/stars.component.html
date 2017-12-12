@@ -1,0 +1,2 @@
+<span *ngFor="let star of stars;let i = index;" (click)="clickStar(i)"
+      [ngClass]='{"glyphicon":true,"glyphicon-star":star,"glyphicon-star-empty":!star}'></span>

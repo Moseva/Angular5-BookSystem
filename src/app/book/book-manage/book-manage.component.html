@@ -1,0 +1,53 @@
+<div class="box">
+    <div class="box-header with-border">
+        <a class="btn btn-sm btn-success" href="javascript:;" (click)="create()"><span
+                class="glyphicon glyphicon-plus"></span>Create</a>
+        <div class="box-tools">
+            <div class="input-group input-group-sm" style="width: 150px;margin-top:5px;">
+                <input [formControl]="searchKey" type="text" name="table_search" class="form-control pull-right"
+                       placeholder="book name">
+
+                <div class="input-group-btn">
+                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+        <table class="table table-bordered">
+            <tr>
+                <th style="width: 10px">#</th>
+                <th>BOOK NAME</th>
+                <th>BOOK TAG</th>
+                <th>BOOK RATING</th>
+                <th>OPERATION</th>
+            </tr>
+            <tr *ngFor="let book of books| async;let i = index;">
+                <td>{{i+1}}</td>
+                <td><a href="javascript:;" (click)="toBookLink(book.link)">{{book.name}}</a></td>
+                <td><span class="badge" *ngFor="let tag of book.tags"><i class="glyphicon glyphicon-tags"></i>{{tag}}</span></td>
+                <td>
+                    <app-stars [(rating)]="book.rating" [readonly]="true"></app-stars>
+                </td>
+                <td>
+                    <a class="btn btn-xs btn-warning" href="javascript:;" (click)="modify(book)"><span
+                            class="glyphicon glyphicon-pencil"></span></a>
+                    <a class="btn btn-xs btn-danger" href="javascript:;" (click)="delete(book)"><span
+                            class="glyphicon glyphicon-trash"></span></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!-- /.box-body -->
+    <div class="box-footer clearfix">
+        <ul class="pagination pagination-sm no-margin pull-right">
+            <li><a href="#">&laquo;</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">&raquo;</a></li>
+        </ul>
+    </div>
+</div>
+<!-- /.box -->
